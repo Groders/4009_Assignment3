@@ -1,0 +1,28 @@
+To run use the command 
+
+mpiexec -np 1 --hostfile _hostfile main
+or (using 4 processors)
+./_run 
+
+Change _hostname as needed.
+
+
+It appears that adding more processors slows down 
+calculations. This is due to the fact that the cost of
+communicating between processors is more than the work
+done. With larger N values. I have no idea why 8 is faster
+than 7, but it was consistantly faster. I also used all 32 
+cores accross the 8 machines to get over a second. 
+
+_________________________________________________
+| -- n -- | -- k -- | -- p -- | -- Times (s) -- |
+|   100   |   100   |   1     |    0.0202646    |
+|   100   |   100   |   2     |    0.0997714    |
+|   100   |   100   |   3     |    0.186749     |
+|   100   |   100   |   4     |    0.209664     |
+|   100   |   100   |   5     |    0.258661     |
+|   100   |   100   |   6     |    0.266293     |
+|   100   |   100   |   7     |    0.321745     |
+|   100   |   100   |   8     |    0.286113     |
+|   100   |   100   |   32    |    1.11131      |
+_________________________________________________
